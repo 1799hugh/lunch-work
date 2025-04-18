@@ -6,6 +6,7 @@ from . import views
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from myapp.models import Account
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, 'myapp/index.html')  # 渲染模板
@@ -27,9 +28,13 @@ def login_view(request):
     return render(request, 'myapp/login.html', {'form': form})
 
 def home_view(request):
-    return render(request, 'myapp/home.html')
+    if not request.user.is_authenticated:  # 如果用戶未登入
+        return render(request, 'myapp/index.html')  # 顯示登入選項
+    return render(request, 'myapp/home.html')  # 已登入顯示歡迎頁面
 
-
+@login_required
+def order_view(request):
+    return render(request, 'myapp/order.html')  # 渲染點餐頁面模板
 
 urlpatterns = [
     path('login/', views.login_view, name='login'),

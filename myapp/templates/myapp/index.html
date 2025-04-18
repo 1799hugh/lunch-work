@@ -6,8 +6,13 @@
     <title>My Django Website</title>
 </head>
 <body>
-    <img src = "https://www.zlsh.tp.edu.tw/wp-content/uploads/Taipei-Municipal-Zhonglun-High-School-1.png" alt="中崙高中">
+    <img src="https://www.zlsh.tp.edu.tw/wp-content/uploads/Taipei-Municipal-Zhonglun-High-School-1.png" alt="中崙高中">
 
     <h1>中崙高中訂餐系統</h1>
+
+    <!-- 添加登入按鈕 -->
+    <a href="{% url 'login' %}">
+        <button>登入</button>
+    </a>
 </body>
 </html>
