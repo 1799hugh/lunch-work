@@ -11,6 +11,14 @@ class LoginForm(forms.Form):
     username = forms.CharField(max_length=150, label="帳號")
     password = forms.CharField(widget=forms.PasswordInput, label="密碼")
 
+class OrderForm(forms.Form):
+    MENU_CHOICES = [
+        ('noodles', '麵類'),
+        ('rise', '飯類'),
+    ]
+    item = forms.ChoiceField(label="餐點選擇", choices=MENU_CHOICES)
+    quantity = forms.IntegerField(label="數量", min_value=1)
+
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
