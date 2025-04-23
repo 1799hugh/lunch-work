@@ -37,3 +37,4 @@ staticfiles/
 # Ignore media files
 media/db.sqlite3
 db.sqlite3
+db.sqlite3
