@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_exempt
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=150, label="帳號")
@@ -19,6 +20,7 @@ class OrderForm(forms.Form):
     item = forms.ChoiceField(label="餐點選擇", choices=MENU_CHOICES)
     quantity = forms.IntegerField(label="數量", min_value=1)
 
+@csrf_exempt
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
