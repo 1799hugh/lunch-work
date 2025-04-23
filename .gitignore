@@ -1,0 +1,38 @@
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore virtual environment
+env/
+
+# Ignore SQLite database
+*.sqlite3
+
+# Ignore Django migrations
+myapp/migrations/*.pyc
+myapp/migrations/__pycache__/
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore system files
+.DS_Store
+
+# Ignore logs
+*.log
+
+# Ignore compiled Python files
+*.py[cod]
+
+# Ignore coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+
+# Ignore static files
+staticfiles/
+
+# Ignore media files
+media/

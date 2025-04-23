@@ -7,6 +7,8 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from myapp.models import Account
 from django.contrib.auth.decorators import login_required
+from .forms import OrderForm
+from .models import Order
 
 def index(request):
     return render(request, 'myapp/index.html')  # 渲染模板
@@ -34,7 +36,19 @@ def home_view(request):
 
 @login_required
 def order_view(request):
-    return render(request, 'myapp/order.html')  # 渲染點餐頁面模板
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            # 儲存點餐資料
+            Order.objects.create(
+                user=request.user,
+                item=form.cleaned_data['item'],
+                quantity=form.cleaned_data['quantity']
+            )
+            return redirect('home')  # 點餐完成後返回首頁
+    else:
+        form = OrderForm()
+    return render(request, 'order.html', {'form': form})
 
 urlpatterns = [
     path('login/', views.login_view, name='login'),
