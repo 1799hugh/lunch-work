@@ -27,14 +27,11 @@ SECRET_KEY = 'django-insecure-9@64m54*jc6r0(+=)qygg&vc+t(tltipf3tf%#%bry*mpvvl8d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # 確保在生產環境中關閉 DEBUG
 
-ALLOWED_HOSTS = ['web-production-1603.up.railway.app', 'localhost', '127.0.0.1'
-    "web-production-1603.up.railway.app",
-    "localhost",  # 如果你也有在本地跑的話
-]
-
+# 修改 ALLOWED_HOSTS 和 CSRF_TRUSTED_ORIGINS 以適應 Render 平台
+ALLOWED_HOSTS = ['lunch-work.onrender.com', 'localhost', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-1603.up.railway.app',
+    'https://lunch-work.onrender.com',
 ]
 
 # Application definition
