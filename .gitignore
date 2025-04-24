@@ -17,7 +17,7 @@ myapp/migrations/__pycache__/
 .vscode/
 
 # Ignore system files
-.DS_Store
+.DS_Store 對
 
 # Ignore logs
 *.log
@@ -35,6 +35,4 @@ htmlcov/
 staticfiles/
 
 # Ignore media files
-media/db.sqlite3
-db.sqlite3
-db.sqlite3
+media/
